@@ -10,15 +10,15 @@ namespace IEnumerableDissecado
     {
         static void Main(string[] args)
         {
-            var numerosDe1A10 = NumerosDe1a10();
-            
-            while (numerosDe1A10.MoveNext())
+            var numerosDe1A10 = NumerosDe1a10().Onde(x => x < 5);
+
+            foreach (var i in numerosDe1A10)
             {
-                Console.WriteLine(numerosDe1A10.Current);
+                Console.WriteLine(i);
             }
         }
 
-        public static IEnumerator<int> NumerosDe1a10()
+        public static IEnumerable<int> NumerosDe1a10()
         {
             yield return 1;
             yield return 2;
@@ -30,6 +30,18 @@ namespace IEnumerableDissecado
             yield return 8;
             yield return 9;
             yield return 10;
+        }
+    }
+
+    public static class MeuLinq
+    {
+        public static IEnumerable<T> Onde<T>(this IEnumerable<T> lista, Func<T, bool> condicao)
+        {
+            foreach (var item in lista)
+                if (condicao(item))
+                    yield return item;
+                else
+                    yield break;
         }
     }
 }
