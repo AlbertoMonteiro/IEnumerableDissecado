@@ -10,13 +10,15 @@ namespace IEnumerableDissecado
     {
         static void Main(string[] args)
         {
-            foreach (var i in NumerosDe1a10())
+            var numerosDe1A10 = NumerosDe1a10();
+            
+            while (numerosDe1A10.MoveNext())
             {
-                Console.WriteLine(i);
+                Console.WriteLine(numerosDe1A10.Current);
             }
         }
 
-        public static IEnumerable<int> NumerosDe1a10()
+        public static IEnumerator<int> NumerosDe1a10()
         {
             yield return 1;
             yield return 2;
