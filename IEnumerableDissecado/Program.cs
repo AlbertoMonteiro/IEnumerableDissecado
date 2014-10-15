@@ -10,7 +10,7 @@ namespace IEnumerableDissecado
     {
         static void Main(string[] args)
         {
-            var numerosDe1A10 = NumerosDe1a10().Onde(x => x < 5);
+            var numerosDe1A10 = NumerosDe1a10().Onde(x => x < 10);
 
             foreach (var i in numerosDe1A10)
             {
@@ -20,16 +20,9 @@ namespace IEnumerableDissecado
 
         public static IEnumerable<int> NumerosDe1a10()
         {
-            yield return 1;
-            yield return 2;
-            yield return 3;
-            yield return 4;
-            yield return 5;
-            yield return 6;
-            yield return 7;
-            yield return 8;
-            yield return 9;
-            yield return 10;
+            int i = 0;
+            while (true)
+                yield return i++;
         }
     }
 
