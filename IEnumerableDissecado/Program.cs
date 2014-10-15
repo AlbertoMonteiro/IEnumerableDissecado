@@ -9,37 +9,26 @@ namespace IEnumerableDissecado
 {
     class Program
     {
+        private static bool deveParar = false;
         static void Main(string[] args)
         {
             var maquinaEstado = NumerosDe1a10(0);
             //var maquinaEstado = new MaquinaEstado(0);
 
-            try
-            {
-                while (maquinaEstado.MoveNext())
-                {
-                    Console.WriteLine(maquinaEstado.Current);
-                }
-            }
-            catch (Exception)
-            {
-                
-            }
-            
-            while (maquinaEstado.MoveNext())
-            {
-                Console.WriteLine(maquinaEstado.Current);
-            }
-
-            /*var numerosDe1A10 = NumerosDe1a10().Onde(x => x < 10);
+            var numerosDe1A10 = NumerosDe1a10(1).Onde(x => x < 10);
 
             foreach (var i in numerosDe1A10)
             {
                 Console.WriteLine(i);
-            }*/
+            }
+            deveParar = true;
+            foreach (var i in numerosDe1A10)
+            {
+                Console.WriteLine(i);
+            }
         }
 
-        public static IEnumerator<int> NumerosDe1a10(int x)
+        public static IEnumerable<int> NumerosDe1a10(int x)
         {
            /* int i = 0;
             while (true)
@@ -47,6 +36,8 @@ namespace IEnumerableDissecado
             yield return 1;
             yield return 2;
             yield return 3/x;
+            if (deveParar)
+                yield break;
             yield return 4;
             yield return 5;
             yield return 6;
