@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 
 namespace IEnumerableDissecado
 {
@@ -10,57 +11,31 @@ namespace IEnumerableDissecado
     {
         static void Main(string[] args)
         {
-            var stopwatch = Stopwatch.StartNew();
-            var linhas = File.ReadLines(@"C:\temp\variaslinhas.txt")
-                            .Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt"))
-                            .Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt"))
-                            .Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt"))
-                            .Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt"))
-                            .Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt"))
-                            .Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt"))
-                            .Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt"))
-                            .Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt"))
-                            .Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt"))
-                            .Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt"))
-                            .Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt"))
-                            .Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt"))
-                            .Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt"))
-                            .Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt"))
-                            .Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt"))
-                            .Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt"))
-                            .Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt"))
-                            .Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt"))
-                            .Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt"))
-                            .Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt"))
-                            .Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt"))
-                            .Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt"))
-                            .Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt"))
-                            .Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt"))
-                            .Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt"))
-                            .Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt"))
-                            .Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt"))
-                            .Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt"))
-                            .Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt"))
-                            .Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt"))
-                            .Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt"))
-                            .Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt"))
-                            .Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt"))
-                            .Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt"))
-                            .Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt"))
-                            .Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt"))
-                            .Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt"))
-                            .Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt"))
-                            .Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt"))
-                            .Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt"))
-                            .Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt"))
-                            .Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt")).Union(File.ReadLines(@"C:\temp\variaslinhas.txt"))
-                            .Union(File.ReadLines(@"C:\temp\variaslinhas.txt"))
-                            .Where(x => x.EndsWith("10"));
-            stopwatch.Stop();
-            Console.WriteLine("Executado em {0}", stopwatch.Elapsed);
-            foreach (var linha in linhas)
+            var inteiros = new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+
+            var ints = from inteiro in inteiros
+                       where "Antes do where " + inteiro
+                       where inteiro % 2 == 0
+                       where "Antes do order by " + inteiro
+                       orderby inteiro descending
+                       where "Antes do select " + inteiro
+                       select inteiro;
+
+            foreach (var i in ints)
             {
-                Console.WriteLine(linha);
+                Console.WriteLine(i);
+            }
+        }
+    }
+
+    public static class MyClass
+    {
+        public static IEnumerable<T> Where<T>(this IEnumerable<T> lista, Func<T, string> predicado)
+        {
+            foreach (var item in lista)
+            {
+                Console.WriteLine(predicado(item));
+                yield return item;
             }
         }
     }
